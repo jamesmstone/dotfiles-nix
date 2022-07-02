@@ -23,9 +23,13 @@
       # Extras
       emacs-overlay.url  = "github:nix-community/emacs-overlay";
       nixos-hardware.url = "github:nixos/nixos-hardware";
+      nixos-generators = {
+         url = "github:nix-community/nixos-generators";
+         inputs.nixpkgs.follows = "nixpkgs";
+      };
     };
 
-  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, ... }:
+  outputs = inputs @ { self, nixpkgs, nixos-generators, nixpkgs-unstable, ... }:
     let
       inherit (lib.my) mapModules mapModulesRec mapHosts;
 
@@ -54,7 +58,14 @@
         mapModules ./overlays import;
 
       packages."${system}" =
-        mapModules ./packages (p: pkgs.callPackage p {});
+        mapModules ./packages (p: pkgs.callPackage p {})
+        //
+        {
+          iso = nixos-generators.nixosGenerate{
+              inherit pkgs;
+              format = "iso";
+            };
+        };
 
       nixosModules =
         { dotfiles = import ./.; } // mapModulesRec ./modules import;
