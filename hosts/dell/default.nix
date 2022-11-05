@@ -108,7 +108,23 @@
   programs.ssh.startAgent = true;
   services.openssh.startWhenNeeded = true;
 
+  # Power management
+  environment.systemPackages = [ pkgs.acpi ];
+  powerManagement.powertop.enable = true;
+  # Monitor backlight control
+  programs.light.enable = true;
+  user.extraGroups = [ "video" ];
+
   networking.networkmanager.enable = true;
+
+  # Without this wpa_supplicant may fail to auto-discover wireless interfaces at
+  # startup (and must be restarted).
+#  networking.wireless.interfaces = [ "wlp2s0" ];
+
+
+
+#  networking.wireless.enable = true;
+    hardware.opengl.enable = true;
 
   user.packages = with pkgs; [
     mosh
