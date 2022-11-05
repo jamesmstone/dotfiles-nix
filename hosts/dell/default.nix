@@ -68,6 +68,7 @@
       node.enable = true;
    #   rust.enable = true;
   #    python.enable = true;
+        cc.enable = true;
     };
     work = {
       enable = true;
