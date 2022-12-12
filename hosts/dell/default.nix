@@ -94,7 +94,8 @@
       zsh.enable    = true;
     };
     services = {
-      ssh.enable = true;
+      yubico.enable = true;
+#      ssh.enable = true;
       docker.enable = true;
       tailscale.enable = true;
       # Needed occasionally to help the parental units with PC problems
@@ -104,9 +105,9 @@
   };
 
 
-  ## Local config
-  programs.ssh.startAgent = true;
-  services.openssh.startWhenNeeded = true;
+#  ## Local config
+#  programs.ssh.startAgent = true;
+#  services.openssh.startWhenNeeded = true;
 
   # Power management
   environment.systemPackages = [ pkgs.acpi ];
