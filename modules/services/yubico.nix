@@ -26,7 +26,7 @@ in {
     };
 
     user.packages = with pkgs; [
-      yubioath-desktop
+      yubioath-flutter
     ];
 #
 #    env.DOCKER_CONFIG = "$XDG_CONFIG_HOME/docker";
