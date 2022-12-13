@@ -32,7 +32,7 @@
 #      sensors.enable = true;
     };
     desktop = {
-      bspwm.enable = true;
+      awesomewm.enable = true;
       apps = {
         rofi.enable = true;
         # godot.enable = true;
