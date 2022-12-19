@@ -131,6 +131,7 @@
 
   user.packages = with pkgs; [
     mosh
+    flameshot
   ];
   ## Personal backups
   # Syncthing is a bit heavy handed for my needs, so rsync to my NAS instead.
