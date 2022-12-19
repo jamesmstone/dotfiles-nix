@@ -16,6 +16,7 @@ in {
     user.packages = with pkgs; [
       ## Idea itself
       jetbrains.idea-ultimate
+      jetbrains.clion
     ];
 
   };
