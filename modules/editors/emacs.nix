@@ -26,7 +26,7 @@ in {
       ## Emacs itself
       binutils       # native-comp needs 'as', provided by this
       # 28.2 + native-comp
-      ((emacsPackagesFor emacsNativeComp).emacsWithPackages
+      ((emacsPackagesFor emacsUnstable).emacsWithPackages
         (epkgs: [ epkgs.vterm ]))
 
       ## Doom dependencies
