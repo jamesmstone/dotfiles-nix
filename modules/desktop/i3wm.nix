@@ -28,6 +28,8 @@ in {
     services = {
       picom.enable = true;
       redshift.enable = true;
+      xrdp.enable = true;
+
       xserver = {
         enable = true;
         displayManager = {
